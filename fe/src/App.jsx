@@ -10,6 +10,8 @@ import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
+import LetterGlitch from './LetterGlitch';
+
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
   return (
@@ -23,11 +25,19 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
       {!showWelcome && (
         <>
           <Navbar />
+          
           <AnimatedBackground />
           <Home />
           <About />
           <Portofolio />
           <ContactPage />
+          <LetterGlitch
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+             smooth={true}
+                   >
+                    </LetterGlitch>
           <footer>
             <center>
               <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
