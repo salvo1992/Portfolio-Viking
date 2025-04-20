@@ -16,8 +16,12 @@
 html,
 body {
 	overflow-x: hidden;
-	background: #090014;
+	background: rgb(2 54 59);
 	scroll-behavior: smooth !important;
+}
+
+.bg-\[\#030014\] {
+	background-color: rgb(2 54 59);
 }
 
 @keyframes blob {
@@ -50,7 +54,7 @@ body {
   }
   
   ::-webkit-scrollbar-track {
-	background: rgba(3, 0, 20, 0.4);
+	background: rgb(2 54 59);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	border: 1px solid rgba(99, 102, 241, 0.1);
