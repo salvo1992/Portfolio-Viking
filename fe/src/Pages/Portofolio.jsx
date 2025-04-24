@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -15,53 +13,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-// Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
-    className="
-      px-3 py-1.5
-      text-slate-300 
-      hover:text-white 
-      text-sm 
-      font-medium 
-      transition-all 
-      duration-300 
-      ease-in-out
-      flex 
-      items-center 
-      gap-2
-      bg-white/5 
-      hover:bg-white/10
-      rounded-md
-      border 
-      border-white/10
-      hover:border-white/20
-      backdrop-blur-sm
-      group
-      relative
-      overflow-hidden
-    "
+    className="px-3 py-1.5 text-slate-300 hover:text-white text-sm font-medium transition-all duration-300 ease-in-out flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 hover:border-white/20 backdrop-blur-sm group relative overflow-hidden"
   >
     <span className="relative z-10 flex items-center gap-2">
       {isShowingMore ? "See Less" : "See More"}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`
-          transition-transform 
-          duration-300 
-          ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}
-        `}
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}`}>
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
     </span>
@@ -71,18 +32,8 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
 
 function TabPanel({ children, value, index, ...other }) {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: { xs: 1, sm: 3 } }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+    <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`} aria-labelledby={`full-width-tab-${index}`} {...other}>
+      {value === index && <Box sx={{ p: { xs: 1, sm: 3 } }}><Typography>{children}</Typography></Box>}
     </div>
   );
 }
@@ -115,55 +66,236 @@ const techStacks = [
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
 ];
 
+const certificates = [
+  { Img: "/certificati/cert1.png" },
+  { Img: "/certificati/cert2.png" },
+  { Img: "/certificati/cert3.png" },
+];
+
+const projects = [
+  {
+    id: "1",
+    Img: "/projects/weather.png",
+    Title: "Weather App",
+    Description: "App meteo con ricerca per città, sviluppata in React con API meteo integrate.",
+    Link: "https://weather-app.salvo1992.netlify.app",
+    Github: "https://github.com/salvo1992/weather-app",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca meteo per città",
+      "Visualizzazione previsioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "Utilizzo di API meteo per dati in tempo reale"
+    ]
+  },
+  {
+    id: "2",
+    Img: "/projects/book-writer.png",
+    Title: "BOOK-Writer",
+    Description: "Applicazione per scrittori con salvataggio automatico e struttura a capitoli.",
+    Link: "https://book-writer01.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Editor avanzato per la scrittura",
+      "Organizzazione capitoli",
+      "Esportazione PDF",
+      "Editor rich text",
+      "Salvataggio automatico",
+      "Interfaccia utente reattiva",
+      "Creazione di libri e romanzi",
+    ]
+  },
+  {
+    id: "3",
+    Img: "/projects/camel-network.png",
+    Title: "CamelNetwork",
+    Description: "Piattaforma di networking decentralizzato per creator e sviluppatori.",
+    Link: "https://camelnetwork.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Social network innovativo",
+      "Feed personalizzato per sviluppatori",
+      "Blog e repository condivisi",
+      "Interfaccia utente reattiva",
+      "Sistema di like e commenti",
+      "Funzionalità di ricerca avanzata",
+    ]
+  },
+  {
+    id: "4",
+    Img: "/projects/qr-generator.png",
+    Title: "Generatore di QR",
+    Description: "Sito per creare, scaricare e gestire QR Code personalizzati.",
+    Link: "https://generatoreqr.netlify.app",
+    Github: "https://github.com/salvo1992/qr-generator",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Generazione QR Code personalizzati",
+      "Download in vari formati",
+      "Design dinamico e personalizzabile",
+      "QR Code da link o testo",
+    ]
+  },
+  {
+    id: "5",
+    Img: "/projects/il-bim.png",
+    Title: "IL Bim",
+    Description: "App didattica per visualizzare modelli BIM 3D online.",
+    Link: "https://ilbimweb.netlify.app/home",
+    Github: "Private",
+    TechStack: ["React", "Three.js"],
+    Features: [
+      "Visualizzazione modelli BIM 3D",
+      "Interfaccia utente reattiva",
+      "Navigazione intuitiva",
+      "Integrazione con librerie 3D",
+      "Supporto per vari formati di file",
+    ]
+  },
+  {
+    id: "6",
+    Img: "/projects/quiz-viking.png",
+    Title: "Quiz The Viking",
+    Description: "Gioco quiz rapido con timer e condivisione social integrata.",
+    Link: "https://quiztheviking.netlify.app",
+    Github: "https://github.com/salvo1992/quiz-the-viking",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Gioco quiz con timer",
+      "Interfaccia accattivante",
+      "Funzionalità social per condivisione risultati",
+      "Domande da API trivia",
+      "Sistema di punteggio",
+      "Modalità di gioco veloce",
+      "Statistiche di gioco",
+      "Design reattivo",
+    ]
+  },
+  {
+    id: "7",
+    Img: "/projects/wedding-snap.png",
+    Title: "Wedding Snap Story",
+    Description: "Album di nozze digitale con caricamento istantaneo delle foto degli invitati.",
+    Link: "https://wedding-snap-story.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Album condiviso per matrimoni",
+      "Caricamento foto da parte degli invitati",
+      "Collezioni di momenti speciali",
+      "Calendario nozze",
+      "Sezione social per interazioni",
+      "Design reattivo",
+      "Funzionalità di ricerca",
+      "Integrazione con social media",
+      "Sistema di notifiche",
+      "Funzione di commento e like",
+      "Creazione di eventi personalizzati",
+    ]
+  },
+  {
+    id: "8",
+    Img: "/projects/cooking-app.png",
+    Title: "Cooking App",
+    Description: "App per cucinare con filtri intelligenti, pianificazione pasti e lista condivisa.",
+    Link: "https://cooking-app-viking.netlify.app",
+    Github: "https://github.com/salvo1992/cooking-app",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricette personalizzate in base al profilo",
+      "Pianificazione settimanale dei pasti",
+      "Lista della spesa condivisa",
+      "Modalità Cucina con Timer integrati",
+      "Sezione Community per scambiarsi ricette",
+      "Integrazione con servizi di consegna"
+    ]
+  },
+  {
+    id: "9",
+    Img: "/projects/statistics.png",
+    Title: "Calcolo Social Statistic",
+    Description: "Analisi delle statistiche dei profili social per influencer e brand.",
+    Link: "https://calcolo-social-statistic.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Chart.js"],
+    Features: [
+      "Analisi statistiche social",
+      "Visualizzazione grafica dei dati",
+      "Interfaccia utente reattiva",
+      "Integrazione con API social",
+      "Funzionalità di esportazione report",
+      "Sistema di filtri avanzati",
+    ]
+  },
+  {
+    id: "10",
+    Img: "/projects/lunaria.png",
+    Title: "LunariaChandler",
+    Description: "Sito e branding per candele artigianali con colori personalizzati e QR promozionale.",
+    Link: "https://lunariachandler.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Sito promozionale elegante",
+      "Catalogo prodotti Candele",
+      "Creazione di candele personalizzate",
+
+    ]
+  },
+  {
+    id: "11",
+    Img: "/projects/badge-app.png",
+    Title: "Software Badge App",
+    Description: "App per gestione badge dei dipendenti, QR scanner e statistiche lavorative.",
+    Link: "https://software-badge-app.netlify.app",
+    Github: "Private",
+    TechStack: ["React", "Expo"],
+    Features: [
+      "Gestione badge dipendenti",
+      "QR scanner per accessi",
+      "Statistiche lavorative",
+      "Dashboard direzionale",
+      "Sistema di notifiche",
+      "Integrazione con API esterne",
+      "Funzionalità di ricerca avanzata",
+      "Design reattivo",
+      "Sistema di reportistica",
+      "Funzione di esportazione dati",
+      "Integrazione con servizi di terze parti",
+      "Gestione utenti e permessi",
+    ]
+  },
+  {
+    id: "12",
+    Img: "/projects/math-app.png",
+    Title: "Matematic Project",
+    Description: "App educativa per studenti con esercizi progressivi di matematica.",
+    Link: "https://matematic-project.netlify.app",
+    Github: "https://github.com/salvo1992/matematic-project",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Esercizi di matematica per ragazzi",
+      "risoluzione di problemi",
+      "Calcolatore di espressioni",
+    ]
+  }
+];
+
 export default function FullWidthTabs() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [value, setValue] = useState(0);
-  const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
 
   useEffect(() => {
-    // Initialize AOS once
-    AOS.init({
-      once: false, // This will make animations occur only once
-    });
+    AOS.init({ once: false });
+    localStorage.setItem("projects", JSON.stringify(projects));
   }, []);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const projectCollection = collection(db, "projects");
-      const certificateCollection = collection(db, "certificates");
-
-      const [projectSnapshot, certificateSnapshot] = await Promise.all([
-        getDocs(projectCollection),
-        getDocs(certificateCollection),
-      ]);
-
-      const projectData = projectSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-        TechStack: doc.data().TechStack || [],
-      }));
-
-      const certificateData = certificateSnapshot.docs.map((doc) => doc.data());
-
-      setProjects(projectData);
-      setCertificates(certificateData);
-
-      // Store in localStorage
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -182,16 +314,9 @@ export default function FullWidthTabs() {
 
   return (
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
-      {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-          <span style={{
-            color: '#6366f1',
-            backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
+          <span style={{ color: '#6366f1', backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Portfolio Showcase
           </span>
         </h2>
@@ -202,137 +327,44 @@ export default function FullWidthTabs() {
       </div>
 
       <Box sx={{ width: "100%" }}>
-        {/* AppBar and Tabs section - unchanged */}
-        <AppBar
-          position="static"
-          elevation={0}
-          sx={{
-            bgcolor: "transparent",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            borderRadius: "20px",
-            position: "relative",
-            overflow: "hidden",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: "linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%)",
-              backdropFilter: "blur(10px)",
-              zIndex: 0,
-            },
-          }}
-          className="md:px-4"
-        >
-          {/* Tabs remain unchanged */}
+        <AppBar position="static" elevation={0} sx={{ bgcolor: "transparent", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "20px", position: "relative", overflow: "hidden" }} className="md:px-4">
           <Tabs
             value={value}
             onChange={handleChange}
             textColor="secondary"
             indicatorColor="secondary"
             variant="fullWidth"
-            sx={{
-              // Existing styles remain unchanged
-              minHeight: "70px",
-              "& .MuiTab-root": {
-                fontSize: { xs: "0.9rem", md: "1rem" },
-                fontWeight: "600",
-                color: "#94a3b8",
-                textTransform: "none",
-                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                padding: "20px 0",
-                zIndex: 1,
-                margin: "8px",
-                borderRadius: "12px",
-                "&:hover": {
-                  color: "#ffffff",
-                  backgroundColor: "rgba(139, 92, 246, 0.1)",
-                  transform: "translateY(-2px)",
-                  "& .lucide": {
-                    transform: "scale(1.1) rotate(5deg)",
-                  },
-                },
-                "&.Mui-selected": {
-                  color: "#fff",
-                  background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
-                  boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)",
-                  "& .lucide": {
-                    color: "#a78bfa",
-                  },
-                },
-              },
-              "& .MuiTabs-indicator": {
-                height: 0,
-              },
-              "& .MuiTabs-flexContainer": {
-                gap: "8px",
-              },
-            }}
+            sx={{ minHeight: "70px", "& .MuiTab-root": { fontSize: { xs: "0.9rem", md: "1rem" }, fontWeight: "600", color: "#94a3b8", textTransform: "none" }, "& .MuiTabs-indicator": { height: 0 }, "& .MuiTabs-flexContainer": { gap: "8px" } }}
           >
-            <Tab
-              icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Projects"
-              {...a11yProps(0)}
-            />
-            <Tab
-              icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Certificates"
-              {...a11yProps(1)}
-            />
-            <Tab
-              icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Tech Stack"
-              {...a11yProps(2)}
-            />
+            <Tab icon={<Code className="mb-2 w-5 h-5" />} label="Projects" {...a11yProps(0)} />
+            <Tab icon={<Award className="mb-2 w-5 h-5" />} label="Certificates" {...a11yProps(1)} />
+            <Tab icon={<Boxes className="mb-2 w-5 h-5" />} label="Tech Stack" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
 
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={setValue}
-        >
+        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="container mx-auto flex justify-center items-center">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
                 {displayedProjects.map((project, index) => (
-                  <div
-                    key={project.id || index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <CardProject
-                      Img={project.Img}
-                      Title={project.Title}
-                      Description={project.Description}
-                      Link={project.Link}
-                      id={project.id}
-                    />
+                  <div key={project.id || index} data-aos="fade-up" data-aos-duration="1000" onClick={() => navigate(`/projects/${project.id}`)} className="cursor-pointer">
+                    <CardProject {...project} />
                   </div>
                 ))}
               </div>
             </div>
             {projects.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('projects')}
-                  isShowingMore={showAllProjects}
-                />
+                <ToggleButton onClick={() => toggleShowMore('projects')} isShowingMore={showAllProjects} />
               </div>
             )}
           </TabPanel>
 
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="container mx-auto flex justify-center items-center">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
                 {displayedCertificates.map((certificate, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
+                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
                     <Certificate ImgSertif={certificate.Img} />
                   </div>
                 ))}
@@ -340,23 +372,16 @@ export default function FullWidthTabs() {
             </div>
             {certificates.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('certificates')}
-                  isShowingMore={showAllCertificates}
-                />
+                <ToggleButton onClick={() => toggleShowMore('certificates')} isShowingMore={showAllCertificates} />
               </div>
             )}
           </TabPanel>
 
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
+            <div className="container mx-auto flex justify-center items-center pb-[5%]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
                 {techStacks.map((stack, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
+                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
                     <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
                   </div>
                 ))}
@@ -368,3 +393,5 @@ export default function FullWidthTabs() {
     </div>
   );
 }
+
+

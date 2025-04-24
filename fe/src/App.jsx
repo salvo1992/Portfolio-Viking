@@ -67,7 +67,7 @@ const ProjectPageLayout = () => (
     . All Rights Reserved.
   </span>
   <img
-    src="viking_logo1.png"
+    src="/viking_logo1.png"
     alt="Vikingo"
     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
   />
@@ -83,7 +83,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
-        <Route path="/project/:id" element={<ProjectPageLayout />} />
+        <Route path="/projects/:id" element={<ProjectPageLayout />} />
       </Routes>
     </BrowserRouter>
   );
