@@ -33,16 +33,20 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <ContactPage />
           
           <footer>
-            <center>
-              <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
-              <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-                © 2025{" "}
-                <a href="https://flowbite.com/" className="hover:underline">
-                The Viking of the Web™
-                </a>
-                . All Rights Reserved.
-              </span>
-            </center>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:items-center sm:gap-4 px-4 py-4">
+  <span className="text-sm text-gray-500 dark:text-gray-400">
+    © 2025{" "}
+    <a href="https://flowbite.com/" className="hover:underline">
+      The Viking of the Web™
+    </a>
+    . All Rights Reserved.
+  </span>
+  <img
+    src="viking_logo1.png"
+    alt="Vikingo"
+    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+  />
+</div>
           </footer>
         </>
       )}
@@ -54,16 +58,20 @@ const ProjectPageLayout = () => (
   <>
     <ProjectDetails />
     <footer>
-      <center>
-        <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
-        <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-          © 2023{" "}
-          <a href="https://flowbite.com/" className="hover:underline">
-          The Viking of the Web™
-          </a>
-          . All Rights Reserved.
-        </span>
-      </center>
+    <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:items-center sm:gap-4 px-4 py-4">
+  <span className="text-sm text-gray-500 dark:text-gray-400">
+    © 2025{" "}
+    <a href="https://flowbite.com/" className="hover:underline">
+      The Viking of the Web™
+    </a>
+    . All Rights Reserved.
+  </span>
+  <img
+    src="viking_logo1.png"
+    alt="Vikingo"
+    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+  />
+</div>
     </footer>
   </>
 );
