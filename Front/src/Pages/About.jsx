@@ -115,7 +115,7 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
 const AboutPage = () => {
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+    
    
     
     const startDate = new Date("2018-11-02");
@@ -124,7 +124,7 @@ const AboutPage = () => {
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
     return {
-      totalProjects: storedProjects.length,
+      totalProjects: 12,
       totalCertificates: 6,// numero di certificati posseduti
       YearExperience: experience
     };
