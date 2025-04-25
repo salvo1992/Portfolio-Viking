@@ -10,6 +10,10 @@ import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
+import CookiePolicy from "./Pages/CookiePolicy";
+import CookieBanner from "./common/CookieBanner";
+import TermsPrivacy from "./Pages/TermsPrivacy";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 
 
@@ -25,7 +29,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
       {!showWelcome && (
         <>
           <Navbar />
-          
+          <CookieBanner />
           <AnimatedBackground />
           <Home />
           <About />
@@ -47,6 +51,19 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
   />
 </div>
+       <div className="flex justify-center items-center mt-4">
+            <a href="/cookie-policy" className="text-sm text-blue-500 hover:underline">
+              Cookie Policy
+            </a>
+            <span className="mx-2">|</span>
+            <a href="/terms-privacy" className="text-sm text-blue-500 hover:underline">
+              Terms and Privacy
+            </a>
+            <span className="mx-2">|</span>
+            <a href="/privacy-policy" className="text-sm text-blue-500 hover:underline">
+              Privacy Policy
+            </a>
+          </div>
           </footer>
         </>
       )}
@@ -71,7 +88,9 @@ const ProjectPageLayout = () => (
     alt="Vikingo"
     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
   />
+
 </div>
+
     </footer>
   </>
 );
@@ -84,6 +103,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
         <Route path="/projects/:id" element={<ProjectPageLayout />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/terms-privacy" element={<TermsPrivacy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   );
