@@ -5,12 +5,12 @@ import { collection, addDoc, getDocs } from "@firebase/firestore"; // Perbarui i
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDX6iABR-0kwo01Gt5mELyqY6yvSQB-HKc",
-  authDomain: "the-viking-of-the-web.firebaseapp.com",
-  projectId: "the-viking-of-the-web",
-  storageBucket: "the-viking-of-the-web.firebasestorage.app",
-  messagingSenderId: "749225308599",
-  appId: "1:749225308599:web:30776ff05b0a8a51693832"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase

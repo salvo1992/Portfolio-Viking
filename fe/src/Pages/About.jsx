@@ -116,16 +116,16 @@ const AboutPage = () => {
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
     const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-    const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
+   
     
-    const startDate = new Date("2021-11-06");
+    const startDate = new Date("2018-11-02");
     const today = new Date();
     const experience = today.getFullYear() - startDate.getFullYear() -
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
     return {
       totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
+      totalCertificates: 6,// numero di certificati posseduti
       YearExperience: experience
     };
   }, []);

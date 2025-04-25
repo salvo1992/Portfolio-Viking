@@ -64,18 +64,44 @@ const techStacks = [
   { icon: "MUI.svg", language: "Material UI" },
   { icon: "vercel.svg", language: "Vercel" },
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "netlify.svg", language: "Netlify" },
+  { icon: "git.png", language: "Git" },
+  { icon: "github.png", language: "Github" },
+  { icon: "Figma-logo.png", language: "Figma" }, 
+  { icon: "threejs-1.svg", language: "Three.js" },
+  { icon: "logo-wordmark.svg", language: "Expo" },
+  { icon: "mongodb.svg", language: "MongoDB" },
+  { icon: "expressjs-ar21~bgwhite.svg", language: "Express" },
+  { icon: "ts.svg", language: "TypeScript" },
+  { icon: "py.png", language: "Python" },
+  { icon: "mysql.svg", language: "MySQL" },
+  { icon: "nextjs.svg", language: "Next.js" },
+  { icon: "docker.svg", language: "Docker" },
+  { icon: "postman.svg", language: "Postman" },
+  { icon: "java.svg", language: "Java" },
+  { icon: "c.jpg", language: "C" },
+  { icon: "aws.svg", language: "AWS" },
+  { icon: "php.svg", language: "PHP" },
+  { icon: "laravel.svg", language: "Laravel" },
+  { icon: "sql.jpg", language: "SQL" },
+  { icon: "angular.svg", language: "Angular" },
+  { icon: "vuejs.svg", language: "Vue.js" },
+
 ];
 
 const certificates = [
-  { Img: "/certificati/cert1.png" },
-  { Img: "/certificati/cert2.png" },
-  { Img: "/certificati/cert3.png" },
+  { Img: "/certificati/Certificazione in web developer full stack.png" },
+  { Img: "/certificati/PYTHON.png" },
+  { Img: "/certificati/certificazione IA.png" },
+  { Img: "/certificati/corso IA 3.png" },
+  { Img: "/certificati/certificato IA 4.png" },
+  { Img: "/certificati/cyber.png" },
 ];
 
 const projects = [
   {
     id: "1",
-    Img: "/projects/weather.png",
+    Img: "/projects/Weather-app.png",
     Title: "Weather App",
     Description: "App meteo con ricerca per città, sviluppata in React con API meteo integrate.",
     Link: "https://weather-app.salvo1992.netlify.app",
@@ -90,7 +116,7 @@ const projects = [
   },
   {
     id: "2",
-    Img: "/projects/book-writer.png",
+    Img: "/projects/book.png",
     Title: "BOOK-Writer",
     Description: "Applicazione per scrittori con salvataggio automatico e struttura a capitoli.",
     Link: "https://book-writer01.netlify.app",
@@ -108,7 +134,7 @@ const projects = [
   },
   {
     id: "3",
-    Img: "/projects/camel-network.png",
+    Img: "/projects/Camel.jpg",
     Title: "CamelNetwork",
     Description: "Piattaforma di networking decentralizzato per creator e sviluppatori.",
     Link: "https://camelnetwork.netlify.app",
@@ -125,7 +151,7 @@ const projects = [
   },
   {
     id: "4",
-    Img: "/projects/qr-generator.png",
+    Img: "/projects/qr.jpg",
     Title: "Generatore di QR",
     Description: "Sito per creare, scaricare e gestire QR Code personalizzati.",
     Link: "https://generatoreqr.netlify.app",
@@ -140,7 +166,7 @@ const projects = [
   },
   {
     id: "5",
-    Img: "/projects/il-bim.png",
+    Img: "/projects/BANNER BIM.png",
     Title: "IL Bim",
     Description: "App didattica per visualizzare modelli BIM 3D online.",
     Link: "https://ilbimweb.netlify.app/home",
@@ -156,7 +182,7 @@ const projects = [
   },
   {
     id: "6",
-    Img: "/projects/quiz-viking.png",
+    Img: "/projects/quiz.png",
     Title: "Quiz The Viking",
     Description: "Gioco quiz rapido con timer e condivisione social integrata.",
     Link: "https://quiztheviking.netlify.app",
@@ -175,7 +201,7 @@ const projects = [
   },
   {
     id: "7",
-    Img: "/projects/wedding-snap.png",
+    Img: "/projects/wedding.jpg",
     Title: "Wedding Snap Story",
     Description: "Album di nozze digitale con caricamento istantaneo delle foto degli invitati.",
     Link: "https://wedding-snap-story.netlify.app",
@@ -197,7 +223,7 @@ const projects = [
   },
   {
     id: "8",
-    Img: "/projects/cooking-app.png",
+    Img: "/projects/cooking.png",
     Title: "Cooking App",
     Description: "App per cucinare con filtri intelligenti, pianificazione pasti e lista condivisa.",
     Link: "https://cooking-app-viking.netlify.app",
@@ -214,7 +240,7 @@ const projects = [
   },
   {
     id: "9",
-    Img: "/projects/statistics.png",
+    Img: "/projects/static.jpg",
     Title: "Calcolo Social Statistic",
     Description: "Analisi delle statistiche dei profili social per influencer e brand.",
     Link: "https://calcolo-social-statistic.netlify.app",
@@ -246,7 +272,7 @@ const projects = [
   },
   {
     id: "11",
-    Img: "/projects/badge-app.png",
+    Img: "/projects/badge.png",
     Title: "Software Badge App",
     Description: "App per gestione badge dei dipendenti, QR scanner e statistiche lavorative.",
     Link: "https://software-badge-app.netlify.app",
@@ -269,7 +295,7 @@ const projects = [
   },
   {
     id: "12",
-    Img: "/projects/math-app.png",
+    Img: "/projects/mate.png",
     Title: "Matematic Project",
     Description: "App educativa per studenti con esercizi progressivi di matematica.",
     Link: "https://matematic-project.onrender.com",
