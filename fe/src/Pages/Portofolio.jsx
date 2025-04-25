@@ -272,7 +272,7 @@ const projects = [
     Img: "/projects/math-app.png",
     Title: "Matematic Project",
     Description: "App educativa per studenti con esercizi progressivi di matematica.",
-    Link: "https://matematic-project.netlify.app",
+    Link: "https://matematic-project.onrender.com",
     Github: "https://github.com/salvo1992/matematic-project",
     TechStack: ["React", "Tailwind"],
     Features: [
