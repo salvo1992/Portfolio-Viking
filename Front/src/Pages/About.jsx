@@ -214,7 +214,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              Sono un full stack developer e devsecops appassionato di sviluppo di web app. Mi dedico alla creazione di esperienze digitali coinvolgenti e sono sempre alla ricerca delle migliori soluzioni per ogni progetto..
+             I am a full stack developer and devsecops enthusiast, passionate about web app development. I am dedicated to creating engaging digital experiences and always strive to find the best solutions for every project.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
