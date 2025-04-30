@@ -40,7 +40,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:items-center sm:gap-4 px-4 py-4">
   <span className="text-sm text-gray-500 dark:text-gray-400">
     © 2025{" "}
-    <a href="https://flowbite.com/" className="hover:underline">
+    <a href="https://www.thevikingoftheweb.it" className="hover:underline">
       The Viking of the Web™
     </a>
     . All Rights Reserved.
@@ -78,7 +78,7 @@ const ProjectPageLayout = () => (
     <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:items-center sm:gap-4 px-4 py-4">
   <span className="text-sm text-gray-500 dark:text-gray-400">
     © 2025{" "}
-    <a href="https://flowbite.com/" className="hover:underline">
+    <a href="https://www.thevikingoftheweb.it" className="hover:underline">
       The Viking of the Web™
     </a>
     . All Rights Reserved.
