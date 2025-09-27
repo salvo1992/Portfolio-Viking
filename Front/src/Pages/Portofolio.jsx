@@ -100,6 +100,22 @@ const certificates = [
 
 const projects = [
   {
+    id: "0",
+    Img: "/projects/bed-and-breakfast-app.png",
+    Title: "bed-and-breakfast-app",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://bed-and-breakfast-app.vercel.app/",
+    Github: "https://github.com/salvo1992/v0-b-and-b-management-app",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
+
+  {
     id: "1",
     Img: "/projects/Weather-app.png",
     Title: "Weather App",
