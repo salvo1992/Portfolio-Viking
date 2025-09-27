@@ -114,6 +114,7 @@ const projects = [
       "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
     ]
   },
+  
 
   {
     id: "1",
