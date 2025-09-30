@@ -120,7 +120,7 @@ const projects = [
     Title: "bed-and-breakfast-app roma",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://roma-bb.vercel.app/",
-    Github: "https://github.com/salvo1992/v0-b-and-b-management-app",
+    Github: "https://github.com/salvo1992/b-b-roma",
     TechStack: ["React", "Tailwind"],
     Features: [
       "Ricerca delle camere",
