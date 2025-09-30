@@ -131,6 +131,23 @@ const projects = [
     ]
   },
 
+    {
+    id: "0.7",
+    Img: "/projects/mare-e-sabbia.png",
+    Title: "Mare & Sabbia",
+    Description: "App per ristorazione , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo della ristorazione .",
+    Link: "https://mareesabbia.vercel.app/",
+    Github: "https://github.com/salvo1992/restaurant-website-design",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "prenotazione tavoli",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali",
+      "Esperienza Romantica in un oceano di piacere "
+    ]
+  },
+
   {
     id: "1",
     Img: "/projects/Weather-app.png",
