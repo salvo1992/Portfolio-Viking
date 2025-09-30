@@ -114,7 +114,21 @@ const projects = [
       "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
     ]
   },
-  
+   {
+    id: "0.5",
+    Img: "/projects/roma-b&b.png",
+    Title: "bed-and-breakfast-app roma",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://roma-bb.vercel.app/",
+    Github: "https://github.com/salvo1992/v0-b-and-b-management-app",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
 
   {
     id: "1",
