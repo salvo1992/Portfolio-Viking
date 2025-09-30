@@ -101,7 +101,7 @@ const certificates = [
 const projects = [
   {
     id: "0",
-    Img: "/projects/b&BToscana.png",
+    Img: "/projects/bb-toscana.png",
     Title: "bed-and-breakfast-app",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://bed-and-breakfast-app.vercel.app/",
@@ -116,7 +116,7 @@ const projects = [
   },
    {
     id: "0.5",
-    Img: "/projects/b&BRoma.png",
+    Img: "/projects/bb-roma.png",
     Title: "bed-and-breakfast-app roma",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://roma-bb.vercel.app/",
