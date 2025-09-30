@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route , Navigate } from "react-router-dom";
 import React, { useState } from 'react';
 import "./index.css";
 import Home from "./Pages/Home";
@@ -106,6 +106,7 @@ function App() {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/terms-privacy" element={<TermsPrivacy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

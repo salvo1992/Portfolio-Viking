@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TermsPrivacy = () => {
   return (
@@ -27,11 +28,31 @@ const TermsPrivacy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">5. Contatti</h2>
       <p>
-        Per domande sui Termini o sulla Privacy, contattaci via email: <a href="mailto:thevikingoftheweb@gmail.com" className="text-blue-600 underline">thevikingoftheweb@gmail.com</a>.
+        Per domande sui Termini o sulla Privacy, contattaci via email:{" "}
+        <a href="mailto:thevikingoftheweb@gmail.com" className="text-blue-600 underline">
+          thevikingoftheweb@gmail.com
+        </a>.
       </p>
+
+      {/* CTA per tornare alla Home */}
+      <div className="mt-10 flex items-center justify-center gap-3">
+        <Link
+          to="/"
+          className="px-5 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+          Naviga ora
+        </Link>
+        <Link
+          to="/"
+          className="px-5 py-2 rounded-xl border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
+        >
+          Visita il sito
+        </Link>
+      </div>
     </div>
   );
 };
 
 export default TermsPrivacy;
+
 
