@@ -15,6 +15,7 @@ import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
@@ -101,7 +102,7 @@ const certificates = [
 const projects = [
   {
     id: "0",
-    Img: "/dist/assets/bb-toscana.png",
+    Img: "/projects/bb-toscana.png",
     Title: "bed-and-breakfast-app",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://bed-and-breakfast-app.vercel.app/",
@@ -116,7 +117,7 @@ const projects = [
   },
    {
     id: "0.5",
-    Img: "/dist/assets/bb-roma.png",
+    Img: "/projects/bb-roma.png",
     Title: "bed-and-breakfast-app roma",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://roma-bb.vercel.app/",
