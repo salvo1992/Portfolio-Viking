@@ -163,6 +163,21 @@ const projects = [
       "Utilizzo di API meteo per dati in tempo reale"
     ]
   },
+   {
+    id: "1.5",
+    Img: "/projects/rifugio-alpino.png",
+    Title: "b&b.rifugio alpino",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://rifugio-alpino.vercel.app/",
+    Github: "https://github.com/salvo1992/rifugio-alpino",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
   {
     id: "2",
     Img: "/projects/book.png",
