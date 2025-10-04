@@ -178,6 +178,22 @@ const projects = [
       "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
     ]
   },
+   {
+    id: "1.7",
+    Img: "/projects/CasaPortofiornia.png",
+    Title: "b&b.CasaPortofiornia",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://casa-portofiornia.vercel.app/",
+    Github: "https://github.com/salvo1992/casa-portofiornia",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
+
   {
     id: "2",
     Img: "/projects/book.png",
