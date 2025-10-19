@@ -386,7 +386,67 @@ const projects = [
       "risoluzione di problemi",
       "Calcolatore di espressioni",
     ]
-  }
+  },
+     {
+    id: "13",
+    Img: "/projects/al22.png",
+    Title: "AL 22 Suite & SPA LUXURY EXPERIENCE",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://polignano-a-mare.vercel.app/",
+    Github: "https://github.com/salvo1992/Polignano-a-Mare",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
+     {
+    id: "14",
+    Img: "/projects/al22suite.png",
+    Title: "b&b.al22suite",
+    Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
+    Link: "https://al22.vercel.app/",
+    Github: "https://github.com/salvo1992/Al22",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca delle camere",
+      "prenotazioni orarie e giornaliere",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale e prenotazioni di pacchetti speciali"
+    ]
+  },
+     {
+    id: "15",
+    Img: "/projects/barstazionediparma.png",
+    Title: "bar stazione di parma.",
+    Description: "App per bar  , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei bar.",
+    Link: "https://barstazionediparma.vercel.app/",
+    Github: "https://github.com/salvo1992/barstazionediparma",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "storia del bar",
+      "orari di apertura  e fascie  giornaliere",
+      "Interfaccia reattiva e intuitiva",
+      "contatto diretto con la struttura  per dati in tempo reale anche per le info per eventuali colloqui di lavoro"
+    ]
+  },
+     {
+    id: "16",
+    Img: "/projects/essenzacampo.png",
+    Title: "essenza campo",
+    Description: "App ecommerce , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo del ecommerce e la vendita di articoli sportivi .",
+    Link: "https://essenzacampo.vercel.app/",
+    Github: "https://github.com/salvo1992/ESSENZACAMPO",
+    TechStack: ["React", "Tailwind"],
+    Features: [
+      "Ricerca degli articoli",
+      "prenotazioni di prodotti sportivi",
+      "Interfaccia utente reattiva e intuitiva",
+      "contatto per info su costi di personalizzazione dei prodotti e di pacchetti speciali"
+    ]
+  },
 ];
 
 export default function FullWidthTabs() {
