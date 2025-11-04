@@ -389,7 +389,7 @@ const projects = [
   },
      {
     id: "13",
-    Img: "/projects/al22.png",
+    Img: "",
     Title: "AL 22 Suite & SPA LUXURY EXPERIENCE",
     Description: "App B&B , sviluppata in React con funzione  integrate e i servizi dedicati nel mondo dei B&B.",
     Link: "https://polignano-a-mare.vercel.app/",
